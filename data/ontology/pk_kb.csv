@@ -1,0 +1,79 @@
+category_id,parameter_category,parameter_id,parameter_name,parameter_synonyms,parameter_description,units
+G1,Exposure Metrics,Q88,AUC,"[""area under the curve"", ""exposure"", ""systemic exposure"", ""total exposure""]",Area under the drug concentration time curve. ,(mass*time)/volume
+G1,Exposure Metrics,Q74,AUClast,"[""AUCall"", ""AUCtend"", ""AUC_last_obs"", ""AUC_last_meas"", ""AUC0-last"", ""AUC0-tlast""]",Area under the drug concentration time curve to the last measurable concentration.,(mass*time)/volume
+G1,Exposure Metrics,Q84,AUC%ext,"[""AUC_extrapolated%""]",Percentage of area under the drug concentration time curve extrapolated beyond the last measurable concentration,%
+G1,Exposure Metrics,Q17,AUC∞,"[""AUCinf"", ""AUC0-∞"", ""AUC0-inf"", ""AUC to infinity"", ""AUCtot""]",Area under the drug concentration-time curve extrapolated to infinity.,(mass*time)/volume
+G1,Exposure Metrics,Q19,AUCt,"[""AUC0-t"", ""AUCτ"", ""AUC0-τ"", ""interval AUC""]",Area under the drug concentration time curve from time 0 to t.,(mass*time)/volume
+G1,Exposure Metrics,Q20,AUMC,"[""first-moment curve"", ""AUC_first_moment"", ""AUMC0-t"", ""AUMC0-inf""]",Area under the first moment of concentration versus time curve.,(mass*time)/volume
+G1,Exposure Metrics,Q18,AUCSS,"[""steady-state AUC"", ""AUC at steady state"", ""steady-state AUCt""]",Area under the drug concentration time curve within a dosing curve at steady state.,(mass*time)/volume
+G1,Exposure Metrics,Q21,AUC ratio,"[""AUCr"", ""AUC_dr"", ""relative AUC"", ""AUC interaction ratio"", ""parent metabolite AUC ratio""]","The ratio of area under the drug concentration time curve (including drug interactions, bioequivalence, metabolite versus parent).",
+G1,Exposure Metrics,Q189,AUC/dose,"[""AUC (dn)"", ""dose-normalised AUC"", ""AUC_per_dose"", ""normalised AUC"", ""AUC/D"", ""AUCt/dose"", ""AUCinf/dose""]",Dose-normalised area under the drug concentration time curve (include AUCt/dose or AUCinf/dose).,(mass*time)/volume
+G2,Bioavailabilities,Q40,Fab,"[""f"", ""bioavailability"", ""absolute bioavailability"", ""oral bioavailability"", ""absolute oral bioavailability"", ""fraction absorbed"", ""systemic availability"", ""absorption"", ""fraction reaching bloodstream"", ""systemic bioavailability""]",Absolute Bioavailability - the fraction of the drug reaches the systemic circulation. ,
+G2,Bioavailabilities,Q87,Frel,"[""relative bioavailability"", ""relative systemic availability""]",Relative Bioavailability - the relative fraction of the drug which reaches the systemic circulation.,
+G2,Bioavailabilities,Q41,FG,"[""gut-wall bioavailability""]",Gut-wall bioavailability - the fraction of an orally administered drug that escapes metabolism in the intestinal wall and reaches the systemic circulation.,
+G2,Bioavailabilities,Q42,FH,"[""hepatic bioavailability""]",Hepatic bioavailability -  the fraction of drug that escapes first-pass metabolism in the liver and reaches the systemic circulation.,
+G2,Bioavailabilities,Q43,FR,"[""renal bioavailability""]","Renal bioavailability -  the fraction of a drug that reaches the systemic circulation unchanged after being filtered, secreted, and reabsorbed by the kidneys.",
+G3,Clearance Metrics,Q22,CL,"[""CLtot"", ""CLt"", ""CLp"", ""clearance"", ""total clearance"", ""clearance rate""]",Total clearance - the proportionality factor relating rate of drug elimination to the drug concentration. ,volume/time 
+G3,Clearance Metrics,Q31,CL_ratio,"[""clearance ratio""]",The ratio of clearances (drug interaction parameter).,
+G3,Clearance Metrics,Q27,CL/F,"[""CLpo"", ""oral clearance"", ""apparent clearance"", ""apparent oral clearance"", ""CLz"", ""CL/f (oral)""]",Total clearance following oral administration adjusted for bioavailability (F).,
+G3,Clearance Metrics,Q23,CLb,"[""blood clearance"", ""total blood clearance""]",Blood clearance - the proportionality factor relating rate of drug elimination to the drug concentration.,volume/time 
+G3,Clearance Metrics,Q25,CLH,"[""hepatic clearance"", ""CL(h)"", ""CL,h""]",Hepatic portion of the total clearance.,volume/time 
+G3,Clearance Metrics,Q26,CLR,"[""renal clearance"", ""CL(r)"", ""CL,r""]",Renal portion of the total clearance.,volume/time 
+G3,Clearance Metrics,Q79,CLNR,"[""nonrenal clearance"", ""CL(nr)"", ""CL,nr""]",Non-renal portion of total clearance (pathways other than renal).,volume/time 
+G3,Clearance Metrics,Q24,CLu,"[""unbound clearance"", ""CL_unbound""]",Unbound clearance - the proportionality factor relating rate of drug elimination to the unbounded drug concentration.,volume/time 
+G3,Clearance Metrics,Q3,CLint,"[""intrinsic metabolic clearance"", ""enzyme mediated clearance"", ""intrinsic clint""]","The intrinsic ability of enzymes to metabolize a drug, defined as the ratio of the maximum metabolic rate (Vmax) to the Michaelis-Menten constant (Km), independent of blood flow or binding constraints.",volume/(time*mass of protein)
+G3,Clearance Metrics,Q44,fe,"[""fraction excreted unchanged"", ""cumulative urinary excretion"", ""excretion"", ""renal excretion"", ""urinary recovery rate"", ""excretion""]","Fraction of the administered dose that is excreted unchanged in urine, bile or feces. ", %
+G3,Clearance Metrics,Q91,Ae ,"[""cumulative excretion amount"", ""amount excreted""]","Amount of the administered dose excreted unchanged in urine, bile or feces. ",mass
+G3,Clearance Metrics,Q30,Q,"[""Q1"", ""Qp1"", ""intercompartmental clearance"", ""intercompartmental clearance between central and peripheral compartments"", ""distribution clearance"", ""cld"", ""1st intercompartmental clearance""]",Apparent intercompartmental clearance between the central and peripheral compartment.,volume/time 
+G3,Clearance Metrics,Q99,Q2,"[""Qp2"", ""intercompartmental clearance between the central and second peripheral compartments"", ""2nd intercompartmental clearance""]",Apparent intercompartment clearance between the central and second peripheral compartment.,volume/time 
+G3,Clearance Metrics,Q69,Q/F,"[""Q1/f"", ""Qp1/f"", ""apparent intercompartmental clearance between the central and peripheral compartment""]","Apparent intercompartmental clearance between the central and periperhal compartment, adjusted for bioavailability (F). ",volume/time 
+G3,Clearance Metrics,Q80,Q2/F,"[""Qp2/f"", ""bioavailability normalised apparent intercompartmental clearance between the central and second peripheral compartment""]","Apparent intercompartmental clearance between the central and second peripheral compartment, adjusted for bioavailability (F).",volume/time 
+G4,Concentrations,Q32,Cmax,"[""Cpeak"", ""peak concentration"", ""maximum concentration"", ""maximum level"", ""peak""]",Highest drug concentration observed following administration of a dose.,mass/volume
+G4,Concentrations,Q174,Cmax/dose,"[""Cmax (dn)"", ""dose-normalised Cmax"", ""Cmax per dose"", ""normalised Cmax""]",Dose-normalised highest drug concentration observed following administration of a dose. ,mass/volume
+G4,Concentrations,Q33,Cmax_ratio,"[""peak concentration ratio""]","The ratio of highest drug concentrations (including drug interactions, bioequivalence, metabolite versus parent).",
+G4,Concentrations,Q36,Cmin,"[""minimum observed concentration""]",The minimum drug concentration reached during a dosing interval.,mass/volume
+G4,Concentrations,Q34,Css,"[""steady-state concentration""]",Drug concentration at steady state during a constant rate intravenous infusion.,mass/volume
+G4,Concentrations,Q35,Css_ratio,"[""steady-state concentration ratio""]",The ratio of drug concentrations at steady state (drug interaction parameter).,
+G4,Concentrations,Q37,Ctrough,"[""cpre"", ""pre-dose level"", ""trough concentration"", ""trough level"", ""trough""]",Drug concentration observed immediately before the next dose is administered.,mass/volume
+G4,Concentrations,Q86,C0,"[""extrapolated concentration"", ""predicted drug concentration at time zero""]",Observed drug concentration extrapolated to time 0. ,(mass*time)/volume
+G4,Concentrations,Q71,Cavg,"[""cav"", ""cave"", ""caverage"", ""average concentration""]",Average drug concentration observed across time points.,mass/volume
+G4,Concentrations,Q75,Ct,,"Drug concentration at time (or day) t following administration of a dose e.g C4hr, concentration on day 7",mass/volume
+G5,Half-Lives,Q57,t1/2z,"[""t1/2"", ""t1/2el"", ""t1/2λz"", ""k10 t1/2"", ""t1/2app"", ""t1/2ke"", ""terminal t1/2"", ""apparent terminal t1/2"", ""elimination t1/2"", ""t1/2 elimination"", ""terminal elimination t1/2"", ""effective t1/2"", ""t1/2 lambda zeta""]","Half-life of the terminal elimination phase, representing the final, slow decline in drug concentration after distribution equilibrium is reached.",time
+G5,Half-Lives,Q58,t1/2_ratio,,"Ratio of terminal half-life values, typically used to assess the effect of drug interactions on systemic elimination.",
+G5,Half-Lives,Q59,t1/2α,"[""distribution t1/2"", ""fast t1/2"", ""initial t1/2"", ""t1/2 alpha""]","Half-life of the initial (fast) distribution phase, reflecting rapid movement of drug from the central compartment to peripheral tissues.",time
+G5,Half-Lives,Q60,t1/2β,"[""t1/2"", ""terminal t1/2"", ""secondary t1/2"", ""2nd t1/2"", ""slow t1/2"", ""t1/2 beta""]","Terminal half-life representing the slowest phase of drug elimination in a two-compartment model, equivalent to t₁/₂z. In a three-compartment model it refers to the second phase of three phases. ",time
+G5,Half-Lives,Q89,t1/2γ,"[""t1/2"", ""terminal t1/2"", ""3rd t1/2"", ""t1/2 gamma""]","Half-life of the terminal elimination phase in a three-compartment model, representing the slowest and final phase of drug decline.
+",time
+G5,Half-Lives,Q95,t1/2ka ,"[""t1/2 abs"", ""t1/2ab"", ""absorption t1/2"", ""k01 t1/2""]","Half-life of the absorption phase, describing the time it takes for half the administered dose to be absorbed into systemic circulation.",time
+G6,Rate Constants,Q47,kel,"[""λ"", ""λz"", ""k"", ""ke"", ""kelimination"", ""k10"", ""elimination rate"", ""first-order elimination rate"", ""elimination rate constant"", ""disappearance rate constant""]",Elimination rate constant.,1/time
+G6,Rate Constants,Q48,kcomp,"[""distribution rate constant"", ""transfer rate constant"", ""transfer rate constant from central to peripheral compartment"", ""transfer rate constant from peripheral to central compartment"", ""rate constant for transfer from central to peripheral compartment"", ""rate constant for transfer from peripheral to central compartment"",  ""k12"", ""k21"", ""k13"", ""k31"", ""k24"", ""k42"", ""k23"", ""k32"", ""k34"", ""k43"", ]","Micro-rate constants governing drug distribution between kinetic compartments in a multi-compartment model e.g. k12, k43 etc. ",1/time
+G6,Rate Constants,Q49,kabs,"[""k01"", ""ka"", ""k(a)"", ""kab"", ""kabs"", ""absorption rate constant"", ""absorption constant"", ""absorption rate"", ""first-order absorption rate""]",Absorption rate constant.,1/time
+G6,Rate Constants,Q50,kexcr,"[""urinary excretion rate constant"", ""k_excr"", ""k_excretion""]",Urinary excretion rate constant.,1/time
+G6,Rate Constants,Q51,kmet,"[""km"", ""kmet"", ""k_metabolite"", ""metabolite elimination rate constant""]",Metabolite elimination rate constant.,1/time
+G6,Rate Constants,Q67,λ1,"[""alpha"", ""α""]",Macro-rate constant describing the fast phase of drug disposition in a multi-compartment model.,mass/time
+G6,Rate Constants,Q68,λ2,"[""beta"", ""β""]",Macro-rate constant describing the slow phase of drug disposition in a multi-compartment model.,mass/time
+G7,Time Metrics,Q56,tmax,"[""tpeak"", ""peak time"", ""time to maximum concentration"", ""time to Cmax"", ""time to peak concentration"", ""time to peak plasma concentration"", ""maximum time to Cmax""]",Time at which the highest drug concentration occurs following administration of a dose.,time
+G7,Time Metrics,Q93,tmax_ratio,,Ratio of times at which the highest drug concentration occurs following administration of a dose.,
+G7,Time Metrics,Q83,tlag ,"[""alag"", ""absorption lag time""]",Drug absorption lag time.,time
+G7,Time Metrics,Q72,tss,"[""time to steady state""]",Time at which the steady-state drug concentration occurs following administration of a dose.,time
+G7,Time Metrics,Q53,MRT,"[""mean residence time"", ""mrt0-t"", ""mrt0-inf"", ""mrtinf"", ""mrtlast""]",Mean time a molecule resides in body (include 0-t or 0-inf).,time
+G7,Time Metrics,Q73,MAT,"[""mean absorption time""]",Mean time required for a drug to be absorbed into systemic circulation after extravascular administration.,time 
+G7,Time Metrics,Q81,MTT,"[""mean transit time""]",Mean time required for a drug molecule to transit through the body from administration to elimination.,
+G8,Volumes,Q61,V,"[""Vd"", ""Vz"", ""V_beta"", ""V_gamma"", ""distribution volume"", ""volume of distribution"", ""volume""]","Volume of distribution based on drug concentration, including general (Vd) and terminal-phase estimates (Vz/V_beta).",volume
+G8,Volumes,Q63,V1,"[""Vc"", ""central volume"", ""central Vd""]",Volume of distribution of the central compartment.,volume
+G8,Volumes,Q64,V2,"[""Vp"", ""Vp1"", ""peripheral volume"", ""peripheral Vd""]",Volume of distribution of the peripheral compartment.,volume
+G8,Volumes,Q77,V3,"[""Vp2"", ""second peripheral volume"", ""second peripheral Vd""]",Volume of distribution of the second peripheral compartment in a three compartment model.,volume
+G8,Volumes,Q76,V/F,"[""Vz/F"", ""Vd/F"", ""apparent volume"", ""apparent volume of distribution""]",Volume of distribution adjusted for bioavailability (F).,volume
+G8,Volumes,Q290,V1/F,"[""V1_F"", ""Vc/F"", ""apparent central volume"", ""apparent volume of distribution, central compartment""]",Volume of distribution of the central compartment adjusted for bioavailability (F). ,volume
+G8,Volumes,Q82,V2/F,"[""Vp/f"", ""apparent peripheral volume"", ""apparent volume of distribution, peripheral compartment""]",Volume of distribution of the peripheral compartment adjusted for bioavailability (F). ,volume
+G8,Volumes,Q78,V3/F,"[""Vp2/f"", ""apparent second peripheral volume"", ""apparent volume of distribution, second peripheral compartment""]","Volume of distribtuion of second peripheral compartment in a three compartment model, adjusted for bioavailability (F).",volume
+G8,Volumes,Q65,Vss,"[""steady state volume"", ""volume at steady state""]",Volume of distribution under steady state concentration.,volume
+G9,Metabolism & Extraction,Q66,Vmax,"[""maximum enzyme activity""]",Maximum rate of metabolism by an enzymatically mediated reaction.,volume
+G9,Metabolism & Extraction,Q1,Km,"[""michaelis menten constant""]",Measure of the affinity of an enzyme for its substrate.,"
+mass/volume"
+G9,Metabolism & Extraction,Q38,E,"[""extraction ratio""]","The ratio between blood clearance, CLb, and blood flow.",
+G9,Metabolism & Extraction,Q39,EH,"[""hepatic extraction ratio""]","The fraction of drug removed from the blood during a single pass through the liver, determined by hepatic metabolism and blood flow.",
+G9,Metabolism & Extraction,Q45,fm,"[""metabolic conversion fraction""]",The fraction of drug systemically available that is converted to a metabolite.,
+G9,Metabolism & Extraction,Q46,fu,"[""unbound"", ""fraction unbound"", ""fraction protein unbound"", ""free fraction"", ""protein binding ratio"", ""protein binding""]",The ratio or percentage of drug which is unbound to proteins.,
+G9,Metabolism & Extraction,Q54,Qb,"[""blood flow""]",The rate at which blood is delivered to organs and tissues. ,volume/time 
+G100,NIL,Q100,,[],,
