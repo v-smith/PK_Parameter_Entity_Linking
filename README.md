@@ -67,7 +67,7 @@ python scripts/linking/tuning/tune_biencoder_linker.py \
 --table-feature text_with_tagged_mention \
 --k 5 \
 --category-constraint \
---include-ontology-desc
+--include-pk_ontology-desc
 ````
 
 #### Train the bi-encoder

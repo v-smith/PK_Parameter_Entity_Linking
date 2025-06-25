@@ -180,7 +180,7 @@ def main(
                                                                         main_similarity=SimilarityFunction.COSINE,
                                                                         )
 
-    # Build corpus from ontology
+    # Build corpus from pk_ontology
     corpus = {k: v for k, v in id_to_label_embeds.items()}
 
     # Build queries from mentions

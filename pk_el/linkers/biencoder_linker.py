@@ -53,7 +53,7 @@ def generate_input_examples(
             for hard_pid in sampled_hard_negs:
                 examples.append(InputExample(texts=[mention, id_to_label[hard_pid]], label=0.0))
 
-        # Random negatives: from full ontology
+        # Random negatives: from full pk_ontology
         if include_random_neg:
             rand_candidates = [pid for pid in all_param_ids if pid != label_id]
             sampled_rand_negs = random.sample(rand_candidates, min(len(rand_candidates), num_random_negs))

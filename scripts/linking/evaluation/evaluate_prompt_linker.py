@@ -98,7 +98,7 @@ def main(ontology_path: Path = typer.Option(default="/home/vsmith/PycharmProject
     )
 
     if not subset_ontology:
-        # Overwrite subset with full ontology for all examples
+        # Overwrite subset with full pk_ontology for all examples
         for example in sent_eval_all:
             example["ontology_subset"] = format_ontology_for_llm(ontology_df)
         for example in tab_eval_all:

@@ -17,7 +17,7 @@ from pk_el.ontology_preprocessing import load_ontology, create_ontology_mappings
 from pk_el.utils import read_jsonl, write_jsonl, append_result_to_jsonl
 
 
-def main(ontology_path: Path = typer.Option(default="/home/vsmith/PycharmProjects/PKEntityLinker/data/kb/pk_kb.csv", help="Path to the ontology CSV file."),
+def main(ontology_path: Path = typer.Option(default="/home/vsmith/PycharmProjects/PKEntityLinker/data/kb/pk_kb.csv", help="Path to the pk_ontology CSV file."),
          sentences_file = typer.Option(default="/home/vsmith/PycharmProjects/PKEntityLinker/data/gold_standard/sentences/validation.jsonl", help="Path to full training sentence-level dataset."),
          tables_file = typer.Option(default="/home/vsmith/PycharmProjects/PKEntityLinker/data/gold_standard/tables/validation.jsonl", help="Path to full training table-level dataset."),
          unlinked_sentences_file: Path = typer.Option(
@@ -35,7 +35,7 @@ def main(ontology_path: Path = typer.Option(default="/home/vsmith/PycharmProject
          model_name: str = typer.Option(default="gpt-4o-mini", help="OpenAI model name (e.g., gpt-4o, gpt-4o-mini)."),
          use_context: bool = typer.Option(False, help="Include mention context as separate section in the prompt."),
          use_context_text: bool = typer.Option(False, help="Give the model only the mention in context"),
-         subset_ontology: bool = typer.Option(True, help="Subset the ontology per example."),
+         subset_ontology: bool = typer.Option(True, help="Subset the pk_ontology per example."),
          use_cot_prompt: bool = typer.Option(False,  help="Use chain-of-thought prompting."),
          use_examples: bool = typer.Option(False, help="Include few-shot examples in the prompt."),
          n_runs: int = typer.Option(1, help="Number of repeated LLM evaluations to average."),
@@ -107,7 +107,7 @@ def main(ontology_path: Path = typer.Option(default="/home/vsmith/PycharmProject
     )
 
     if not subset_ontology:
-        # Overwrite subset with full ontology for all examples
+        # Overwrite subset with full pk_ontology for all examples
         for example in sent_eval_all:
             example["ontology_subset"] = format_ontology_for_llm(ontology_df)
         for example in tab_eval_all:

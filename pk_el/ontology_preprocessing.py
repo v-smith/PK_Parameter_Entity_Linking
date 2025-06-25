@@ -12,7 +12,7 @@ from pk_el.tokenizers.pk_tokenizer import pk_tokenizer
 
 def load_ontology(ontology_path, remove_nil=True):
     """
-    Loads and preprocesses the ontology CSV.
+    Loads and preprocesses the pk_ontology CSV.
 
     - Normalizes synonym formatting
     - Handles NaNs
@@ -62,7 +62,7 @@ def normalize_ontology_synonyms(val):
 
 def create_ontology_mappings(ontology_df, include_nil=False):
     """
-    Creates mappings from an ontology dataframe.
+    Creates mappings from an pk_ontology dataframe.
 
     Args:
         ontology_df (pd.DataFrame): Ontology data.
@@ -113,7 +113,7 @@ def create_ontology_mappings(ontology_df, include_nil=False):
 
 def format_ontology_for_llm(ontology_df):
     """
-    Formats the ontology nicely for LLM input.
+    Formats the pk_ontology nicely for LLM input.
     """
     formatted = []
     for _, entry in ontology_df.iterrows():
@@ -195,9 +195,9 @@ def add_ontology_subset_to_examples(
     use_filtered_subset: bool = True,
 ) -> List[dict]:
     """
-    Adds ontology subset and subsetted parameter IDs to each example.
+    Adds pk_ontology subset and subsetted parameter IDs to each example.
     """
-    print("Adding ontology subset to examples...")
+    print("Adding pk_ontology subset to examples...")
 
     # Create reverse map for category_id → list of parameter_ids
     category_to_param_ids = {}
@@ -328,7 +328,7 @@ def evaluate_subset_matching(
     print(f"→ False Positive Rate (NIL): {nil_fp_rate:.2%}")
     print("\n")
     print(f"Examples with >1 category:    {multi_category_count}")
-    print(f"Avg. reduction ontology subset size:   {avg_reduction:.2f}")
+    print(f"Avg. reduction pk_ontology subset size:   {avg_reduction:.2f}")
 
 
     return {

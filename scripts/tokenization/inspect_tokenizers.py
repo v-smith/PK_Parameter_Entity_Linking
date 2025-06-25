@@ -7,7 +7,7 @@ from pk_el.tokenizers.scispacy_tokenizer import scispacy_tokenizer
 
 
 def tokenizer_analysis(tokenizer, ontology_file):
-    """Analyzes tokenization for ontology terms."""
+    """Analyzes tokenization for pk_ontology terms."""
     ontology_df = load_ontology(ontology_file)
     mappings = create_ontology_mappings(ontology_df)
     ontology_terms = list(mappings["param_name_to_param_id"].keys())

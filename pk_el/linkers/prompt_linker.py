@@ -10,8 +10,8 @@ from pk_el.evaluation import evaluate, plot_confusion_matrix
 
 SYSTEM_PROMPT_COT = """
 You are a highly intelligent and accurate pharmacokinetics (PK) entity linker. 
-You will receive a parameter mention from scientific literature and an ontology. 
-Your task is to accurately identify the mention using the concepts in the ontology.
+You will receive a parameter mention from scientific literature and an pk_ontology. 
+Your task is to accurately identify the mention using the concepts in the pk_ontology.
 
 Please answer the following questions to determine the output:
 
@@ -21,10 +21,10 @@ This excludes the following: pharmacodynamic, PBPK, chemical, in vitro, or clini
 - If no, set the final answer to NIL. 
 - If you are unsure, set the final answer to NIL.
 
-Q2. Does the mention match or refer to a known PK concept in the ontology?
+Q2. Does the mention match or refer to a known PK concept in the pk_ontology?
 Note mentions may include prefixes, suffixes, time annotations, or drug-specific subscripts.
-Map these to their core ontology concept if applicable. 
-- If yes, return the concept name exactly as it appears in the ontology.
+Map these to their core pk_ontology concept if applicable. 
+- If yes, return the concept name exactly as it appears in the pk_ontology.
 - If no, set the final answer to NIL. 
 - If you are unsure, set the final answer to NIL.
 
@@ -33,13 +33,13 @@ Please return only the final answer in the format: {param: final answer}.
 
 SYSTEM_PROMPT_STANDARD = """
 You are a highly intelligent and accurate pharmacokinetics (PK) entity linker. 
-You will receive a parameter mention from scientific literature and an ontology. 
-Your task is to accurately identify the mention using the concepts in the given ontology.
+You will receive a parameter mention from scientific literature and an pk_ontology. 
+Your task is to accurately identify the mention using the concepts in the given pk_ontology.
 
 - Accuracy is paramount. If the text does not precisely refer to any of the concepts listed below, please answer NIL.
 - If the mention does not refer to a PK parameter (e.g. part of a pharmacodynamic parameter (e.g. "[MENTION]AUC[\MENTION]/MIC"), or a PBPK, chemical, in vitro, clinical, or other unrelated term), please answer NIL.
 - If you are unsure, please answer NIL.
-- If there is a match, please answer with the corresponding concept name (PARAM_NAME), exactly as it appears in the ontology below. 
+- If there is a match, please answer with the corresponding concept name (PARAM_NAME), exactly as it appears in the pk_ontology below. 
 
 Please return your answer in the format: {param: <answer>}.
 """
@@ -55,11 +55,11 @@ The following examples are provided to guide you. They include mentions (with co
 
 [Mention] Maximum concentration at steady-state (Css (max))
 [Expected Output] {param: NIL}
-[Explanation] This is a mixture of parameters in our ontology (Css, Cmax) and does not fit exactly with any one so should be marked as NIL. 
+[Explanation] This is a mixture of parameters in our pk_ontology (Css, Cmax) and does not fit exactly with any one so should be marked as NIL. 
 
 [Mention] Rate constant for distribution to the effector compartment
 [Expected Output] {param: NIL}
-[Explanation] Although it refers to a rate constant, it is related to the effect compartment, not specifically covered in our ontology.
+[Explanation] Although it refers to a rate constant, it is related to the effect compartment, not specifically covered in our pk_ontology.
 
 [Mention] half-lives[/MENTION] were 1.39 hours and 1.89 hours for R-BSO and S-BSO, respectively.
 [Expected Output] {param: t1/2z}
@@ -76,7 +76,7 @@ The [MENTION]half-life of the later phase[/MENTION] was 323 minutes in healthy i
 
 [Mentions] dialytic clearance, CL(uptake), clearance from the perfusate (CL) and into the bile (CLB)
 [Expected Output in all cases] {param: NIL}
-[Explanation] These refer to specific subtypes of clearance (e.g., dialysis, uptake, biliary) and not to CL parameters in our ontology.
+[Explanation] These refer to specific subtypes of clearance (e.g., dialysis, uptake, biliary) and not to CL parameters in our pk_ontology.
 
 [Mention] renal excretion rate (1.69 microg x min(-1))
 [Expected Output] {param: NIL}
@@ -97,16 +97,16 @@ The following examples are provided to guide you. They include mentions (with co
 
 [Mention] Vd,ss/F (mL/kg) 
 [Expected Output] {param: NIL}
-[Explanation] This does not fit exactly with any a parameter in the ontology (closest to V/F but at steady-state) -> return NIL.  
+[Explanation] This does not fit exactly with any a parameter in the pk_ontology (closest to V/F but at steady-state) -> return NIL.  
 
 [Mention] Cmax at steady-state
 [Expected Output] {param: NIL}
-[Explanation] This does not fit exactly with any a parameter in the ontology (closest to Cmax but at steady-state) -> return NIL.    
+[Explanation] This does not fit exactly with any a parameter in the pk_ontology (closest to Cmax but at steady-state) -> return NIL.    
 
 [Mention] ARCtrough 
 [FOOTER] ARCtrough = Accumulation ratio of trough concentrations
 [Expected Output] {param: NIL}
-[Explanation] Does not link specifically to any entries in the ontology -> return NIL.
+[Explanation] Does not link specifically to any entries in the pk_ontology -> return NIL.
 
 [Mention] Cavg0–336h
 [Expected Output] {param: Cavg}
@@ -239,7 +239,7 @@ def link_mentions_with_llm(
     context_key: str =None,
 ):
     """
-    Link mentions from a dataset to ontology parameters using a zero-shot LLM linker.
+    Link mentions from a dataset to pk_ontology parameters using a zero-shot LLM linker.
 
     Args:
         dataset (List[dict]): List of mention dictionaries (must have 'mention', 'text_with_tagged_mention', etc.)

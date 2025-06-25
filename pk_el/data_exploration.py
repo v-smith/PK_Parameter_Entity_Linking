@@ -12,7 +12,7 @@ def calculate_ontology_coverage(all_data, ontology_df):
     # All unique parameter_ids in data
     unique_data_labels = set(data_labels)
 
-    # All unique parameter_ids in the ontology
+    # All unique parameter_ids in the pk_ontology
     kb_parameter_ids = set(ontology_df["parameter_id"])
 
     # Overall KB coverage
