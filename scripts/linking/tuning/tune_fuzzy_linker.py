@@ -3,9 +3,9 @@ from pathlib import Path
 import typer
 
 from pk_el.data_preprocessing import prep_text_features, prep_table_features, TEXT_DEFAULT_CONFIG, TABLE_DEFAULT_CONFIG
+from pk_el.evaluation import split_matched_and_unmatched
 from pk_el.linkers.exact_linker import tokenize_data, create_tokenized_param_names_and_synonyms_to_ids
 from pk_el.linkers.fuzzy_linker import plot_f1_vs_matched, run_fuzzy_retrieval_eval
-from pk_el.linkers.prompt_linker import split_matched_and_unmatched
 from pk_el.ontology_preprocessing import load_ontology, create_ontology_mappings, add_ontology_subset_to_examples
 from pk_el.utils import read_jsonl
 
